@@ -5,10 +5,9 @@ import Blogs from "../views/Blogs.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  
   {
-    path: '/',
-    redirect: '/home'
+    path: "/",
+    redirect: "/home"
   },
   {
     path: "/home",
@@ -28,7 +27,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: "history"
 });
 
 export default router;
