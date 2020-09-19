@@ -10,22 +10,8 @@
     </div>
   </div>
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  name: "BlogDetails",
-  computed: {
-    ...mapGetters(["getPostDetails"])
-  },
-  created() {
-    this.$store.dispatch("RESET_DETAILS");
-    this.$store.dispatch("GET_POST_DETAILS", {
-      pathValue: this.$route.params.id
-    });
-    // console.log()
-  }
-};
-</script>
+<script src="./js/blog-detail.js" />
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .post-container {

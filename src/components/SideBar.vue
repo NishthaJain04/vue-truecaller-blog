@@ -15,39 +15,15 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
-export default {
-  name: "SideBar",
-  props: {
-    msg: String
-  },
-  methods: {
-    getPosts(obj, name) {
-      let params = {
-        number: 25,
-        order_by: "date",
-        order: "DESC",
-        page: 0
-      };
-      params[name] = obj.slug;
-      this.$store.dispatch("RESET_POSTS");
-      this.$store.dispatch("GET_POSTS", {
-        params
-      });
-    }
-  },
-  computed: {
-    ...mapGetters(["getCategories", "getTags"])
-  }
-};
-</script>
+<script src="./js/side-bar.js" />
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .sidenav {
   height: 100%;
   padding-top: 20px;
+  position: fixed;
+  right: 250px;
 }
 .wrapper {
   border-top: 5px solid #000;

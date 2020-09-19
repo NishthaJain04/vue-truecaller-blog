@@ -16,13 +16,12 @@ const serializeQueryParams = paramObj => {
   }
   return "";
 };
-export default {
-  makeRequest(path, callback, params) {
-    path += serializeQueryParams(params);
-    fetch(path).then(response => {
-      response.json().then(data => {
-        callback(data);
-      });
+
+export function makeRequest(path, callback, params) {
+  path += serializeQueryParams(params);
+  fetch(path).then(response => {
+    response.json().then(data => {
+      callback(data);
     });
-  }
-};
+  });
+}

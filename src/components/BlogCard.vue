@@ -11,25 +11,7 @@
   </div>
 </template>
 
-<script>
-import { formatDistance } from "date-fns";
-export default {
-  name: "BlogsCard",
-  props: {
-    post: Object
-  },
-  computed: {
-    getDate() {
-      return `${formatDistance(new Date(this.post.date), new Date())} ago`;
-    }
-  },
-  methods: {
-    getPostDetails() {
-      this.$router.push(`/post/detail/${this.post.ID}`);
-    }
-  }
-};
-</script>
+<script src="./js/blog-card.js" />
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
