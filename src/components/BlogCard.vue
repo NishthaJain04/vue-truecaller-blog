@@ -1,35 +1,17 @@
 <template>
   <div>
-      <div class="post-container" @click="getPostDetails">
-        <div class="img-container">
-          <img :src="post.featured_image"/>
-        </div>
-        <div class="post-date">{{ getDate }}</div>
-        <div class="post-body" v-html="post.excerpt"></div>
-        <div class="post-continue">Continue reading..</div>
+    <div class="post-container" @click="getPostDetails">
+      <div class="img-container">
+        <img :src="post.featured_image" />
       </div>
+      <div class="post-date">{{ getDate }}</div>
+      <div class="post-body" v-html="post.excerpt"></div>
+      <div class="post-continue">Continue reading..</div>
+    </div>
   </div>
 </template>
 
-<script>
-import { formatDistance } from "date-fns";
-export default {
-  name: "BlogsCard",
-  props: {
-    post: Object
-  },
-  computed: {
-    getDate() {
-        return `${formatDistance(new Date(this.post.date), new Date())} ago`
-    }
-  },
-  methods: {
-    getPostDetails() {
-      this.$router.push(`/post/detail/${this.post.ID}`)
-    }
-  }
-};
-</script>
+<script src="./js/blog-card.js" />
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
@@ -59,13 +41,13 @@ export default {
   color: #007dcc;
 }
 .img-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  img {
     height: 100%;
     width: 100%;
-    border-radius: 8px;
-    padding: 16px;
-    img {
-      height: 100%;
-      width: 100%;
-    }
+  }
 }
 </style>

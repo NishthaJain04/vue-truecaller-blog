@@ -1,30 +1,18 @@
-import apiUrls from './apiUrls';
-import apiCall from './apiUtils.js';
+import { api } from "./apiUrls";
+import { makeRequest } from "./apiUtils.js";
 
+const { getPosts, getCategories, getTags, getPostDetails } = api;
 export default {
-    getPosts(callback, params) {
-      apiCall.makeRequest(
-        apiUrls.api.getPosts,
-        callback,
-        params
-      );
-    },
-    getCategories(callback) {
-        apiCall.makeRequest(
-          apiUrls.api.getCategories,
-          callback
-        );
-    },
-    getTags(callback) {
-        apiCall.makeRequest(
-          apiUrls.api.getTags,
-          callback
-        );
-    },
-    getPostDetails(callback, pathValue) {
-        apiCall.makeRequest(
-          apiUrls.api.getPostDetails(pathValue),
-          callback
-        );
-    }
-}
+  getPosts(callback, params) {
+    makeRequest(getPosts, callback, params);
+  },
+  getCategories(callback) {
+    makeRequest(getCategories, callback);
+  },
+  getTags(callback) {
+    makeRequest(getTags, callback);
+  },
+  getPostDetails(callback, pathValue) {
+    makeRequest(getPostDetails(pathValue), callback);
+  }
+};
