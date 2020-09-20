@@ -5,17 +5,17 @@ export default {
     msg: String
   },
   methods: {
-    getPosts(obj, name) {
+    getPosts(postObj, name) {
       let params = {
         number: 25,
         order_by: "date",
         order: "DESC",
         page: 0
       };
-      params[name] = obj.slug;
-      this.$store.dispatch("RESET_POSTS");
+      params[name] = postObj.name;
       this.$store.dispatch("GET_POSTS", {
-        params
+        params,
+        isNewPage: true
       });
     }
   },

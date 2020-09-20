@@ -2,14 +2,14 @@
   <div class="sidenav">
     <div class="wrapper" v-if="getCategories.length">
       <p>CATEGORIES</p>
-      <ul v-for="cat in getCategories" :key="cat.ID">
-        <li @click="() => getPosts(cat, 'category')">{{ cat.name }}</li>
+      <ul v-for="cat in getCategories" :key="cat.ID" @click="() => getPosts(cat, 'category')">
+        <li>{{ cat.name }}</li>
       </ul>
     </div>
     <div class="wrapper" v-if="getTags.length">
       <p>POPULAR TAGS</p>
-      <ul v-for="tag in getTags" :key="tag.ID">
-        <li @click="() => getPosts(tag, 'tag')">{{ tag.name }}</li>
+      <ul v-for="tag in getTags" :key="tag.ID" @click="() => getPosts(tag, 'tag')">
+        <li>{{ tag.name }}</li>
       </ul>
     </div>
   </div>
@@ -22,8 +22,6 @@
 .sidenav {
   height: 100%;
   padding-top: 20px;
-  position: fixed;
-  right: 250px;
 }
 .wrapper {
   border-top: 5px solid #000;
@@ -39,7 +37,6 @@ ul {
   padding: 0;
 }
 li {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   list-style-type: none;
   line-height: 1em;
 }
