@@ -14,7 +14,7 @@
             ></div>
           </infinite-loading>
         </div>
-        <div class="col-3">
+        <div :class="getPosts && getPosts.length ? 'col-3': 'sidebar'">
           <SideBar />
         </div>
       </div>
@@ -23,3 +23,9 @@
 </template>
 
 <script src="./js/blogs.js" />
+<style lang="scss" scoped>
+.sidebar {
+  position: fixed;
+  right: 5%;
+}
+</style>
